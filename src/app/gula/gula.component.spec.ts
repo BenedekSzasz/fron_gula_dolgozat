@@ -1,3 +1,13 @@
+/*
+* File: gula.component.ts
+* Author: Szász Benedek
+* Copyright: 2026, Szász Benedek
+* Group: Szoft II N
+* Date: 2026-09-30
+* Github: https://github.com/benedekszasz7/
+* Licenc: GNU GPL
+*/
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GulaComponent } from './gula.component';
