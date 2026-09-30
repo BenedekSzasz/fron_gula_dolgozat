@@ -22,6 +22,7 @@ export class GulaComponent {
     const height = Number(this.gulaForm.value.height);
     const baseSide = Number(this.gulaForm.value.baseSide);
     const volume = this.calcVolume(baseSide, height);
+    // this.gulaForm.patchValue({volume: String(volume)});
     this.gulaForm.get('volume')?.setValue(String(volume));
     this.showVolume = true;
   }
