@@ -14,11 +14,25 @@ Licenc: GNU GPL
 <form [formGroup]="gulaForm" (ngSubmit)="startCalc()">
 
     <div>
-        <label for="height" class="form-lable mt-3 text-center">Magasság</label>
+        <label for="height" class="form-lable mt-3 text-center">Magasság
+            @if (gulaForm.get('height')?.hasError('required') && gulaForm.get('height')?.touched) {
+            <span class="badge text-bg-danger">A magasságot kötelező megadni</span>
+            }
+            @if (gulaForm.get('height')?.hasError('min') && gulaForm.get('height')?.touched) {
+            <span class="badge text-bg-danger">Az érték legalább 1 legyen</span>
+            }
+        </label>
         <input type="text" id="height" formControlName="height" class="form-control">
     </div>
     <div>
-        <label for="baseSide" class="form-lable mt-3">Aloldal</label>
+        <label for="baseSide" class="form-lable mt-3">Aloldal
+            @if (gulaForm.get('baseSide')?.hasError('required') && gulaForm.get('baseSide')?.touched) {
+            <span class="badge text-bg-danger">Az aloldalat kötelező megadni</span>
+            }
+            @if (gulaForm.get('baseSide')?.hasError('min') && gulaForm.get('baseSide')?.touched) {
+            <span class="badge text-bg-danger">Az érték legalább 1 legyen</span>
+            }
+        </label>
         <input type="text" id="baseSide" formControlName="baseSide" class="form-control">
     </div>
     <button class="btn btn-primary mt-3">Számít</button>
@@ -26,9 +40,9 @@ Licenc: GNU GPL
     @if (showVolume) {
     <div>
         <label for="volume" class="form-lable mt-3">Térfogat</label>
-        <input type="text" id="volume" formControlName="volume" class="form-control">
+        <input type="text" id="volume" formControlName="volume" class="form-control" readonly>
     </div>
     }
-
+    <button class="btn btn-danger mt-3">Törlés</button>
 
 </form>
